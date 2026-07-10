@@ -1,0 +1,102 @@
+diff a/Assets/Scenes/GameScene.unity b/Assets/Scenes/GameScene.unity	(rejected hunks)
+@@ -2847,6 +2847,11 @@ Transform:
+   m_CorrespondingSourceObject: {fileID: 4000011765245650, guid: 9732a241b7bd0fa4a8e59553d6d8a2b0, type: 3}
+   m_PrefabInstance: {fileID: 248615475}
+   m_PrefabAsset: {fileID: 0}
++--- !u!95 &271071144 stripped
++Animator:
++  m_CorrespondingSourceObject: {fileID: 8818148501639231403, guid: 83628a2e699576147adabb30587f44d4, type: 3}
++  m_PrefabInstance: {fileID: 1533009036}
++  m_PrefabAsset: {fileID: 0}
+ --- !u!1001 &272442239
+ PrefabInstance:
+   m_ObjectHideFlags: 0
+@@ -21024,6 +21029,14 @@ PrefabInstance:
+       propertyPath: m_Name
+       value: PicoChan
+       objectReference: {fileID: 0}
++    - target: {fileID: 8818148501639231403, guid: 83628a2e699576147adabb30587f44d4, type: 3}
++      propertyPath: m_Controller
++      value: 
++      objectReference: {fileID: 9100000, guid: 4c11cadabff731543ae059bf3d148817, type: 2}
++    - target: {fileID: 8818148501639231403, guid: 83628a2e699576147adabb30587f44d4, type: 3}
++      propertyPath: m_ApplyRootMotion
++      value: 0
++      objectReference: {fileID: 0}
+     m_RemovedComponents: []
+     m_RemovedGameObjects: []
+     m_AddedGameObjects: []
+@@ -21034,6 +21047,12 @@ PrefabInstance:
+     - targetCorrespondingSourceObject: {fileID: 2350652681907635850, guid: 83628a2e699576147adabb30587f44d4, type: 3}
+       insertIndex: -1
+       addedObject: {fileID: 1642013319}
++    - targetCorrespondingSourceObject: {fileID: 2350652681907635850, guid: 83628a2e699576147adabb30587f44d4, type: 3}
++      insertIndex: -1
++      addedObject: {fileID: 1642013321}
++    - targetCorrespondingSourceObject: {fileID: 2350652681907635850, guid: 83628a2e699576147adabb30587f44d4, type: 3}
++      insertIndex: -1
++      addedObject: {fileID: 1642013322}
+   m_SourcePrefab: {fileID: 100100000, guid: 83628a2e699576147adabb30587f44d4, type: 3}
+ --- !u!1001 &1565689863
+ PrefabInstance:
+@@ -22454,6 +22473,60 @@ MonoBehaviour:
+   m_Name: 
+   m_EditorClassIdentifier: Assembly-CSharp::Player
+   speedMax: 5
++  accel: 50
++  rotateSpeed: 20
++  animator: {fileID: 271071144}
++  jumpSpeed: 20
++--- !u!54 &1642013321
++Rigidbody:
++  m_ObjectHideFlags: 0
++  m_CorrespondingSourceObject: {fileID: 0}
++  m_PrefabInstance: {fileID: 0}
++  m_PrefabAsset: {fileID: 0}
++  m_GameObject: {fileID: 1642013317}
++  serializedVersion: 5
++  m_Mass: 1
++  m_LinearDamping: 8
++  m_AngularDamping: 0.05
++  m_CenterOfMass: {x: 0, y: 0, z: 0}
++  m_InertiaTensor: {x: 1, y: 1, z: 1}
++  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
++  m_IncludeLayers:
++    serializedVersion: 2
++    m_Bits: 0
++  m_ExcludeLayers:
++    serializedVersion: 2
++    m_Bits: 0
++  m_ImplicitCom: 1
++  m_ImplicitTensor: 1
++  m_UseGravity: 1
++  m_IsKinematic: 0
++  m_Interpolate: 0
++  m_Constraints: 112
++  m_CollisionDetection: 0
++--- !u!136 &1642013322
++CapsuleCollider:
++  m_ObjectHideFlags: 0
++  m_CorrespondingSourceObject: {fileID: 0}
++  m_PrefabInstance: {fileID: 0}
++  m_PrefabAsset: {fileID: 0}
++  m_GameObject: {fileID: 1642013317}
++  m_Material: {fileID: 0}
++  m_IncludeLayers:
++    serializedVersion: 2
++    m_Bits: 0
++  m_ExcludeLayers:
++    serializedVersion: 2
++    m_Bits: 0
++  m_LayerOverridePriority: 0
++  m_IsTrigger: 0
++  m_ProvidesContacts: 0
++  m_Enabled: 1
++  serializedVersion: 2
++  m_Radius: 0.4
++  m_Height: 1.6
++  m_Direction: 1
++  m_Center: {x: 0, y: 0.8, z: 0}
+ --- !u!1001 &1644934531
+ PrefabInstance:
+   m_ObjectHideFlags: 0
