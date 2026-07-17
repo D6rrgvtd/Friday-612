@@ -2948,25 +2948,6 @@ MonoBehaviour:
   m_DefaultActionMap: 
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 330585545}
---- !u!114 &252193682
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 252193679}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 923f6a369735b344fa8a8c031aefb8b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Player
-  speedMax: 2
-  accel: 15
-  rotatespeed: 20
-  groundNormalYMin: 0.7
-  groundDamping: 8
-  airDamping: 0.5
-  JumpSpeed: 12
 --- !u!4 &252193683 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1327674205686831306, guid: 83628a2e699576147adabb30587f44d4, type: 3}
@@ -21526,9 +21507,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 330585546}
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2350652681907635850, guid: 83628a2e699576147adabb30587f44d4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 252193682}
     - targetCorrespondingSourceObject: {fileID: 2350652681907635850, guid: 83628a2e699576147adabb30587f44d4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 252193681}
