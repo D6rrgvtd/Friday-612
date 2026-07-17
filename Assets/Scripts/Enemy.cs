@@ -5,8 +5,11 @@ public class Enemy : MonoBehaviour
 {
     
     public Collider playerCollider { get; set; }
-
+    [SerializeField] int hp = 2;
     [SerializeField] private float moveSpeed;
+    public float invincibleTime;
+    [SerializeField] float invincibleTimeMax = 0.5f;
+    [SerializeField] float knockbackSpeed = 5;
 
     Rigidbody rb;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -28,11 +31,34 @@ public class Enemy : MonoBehaviour
                 isSeenPlayer = false;
             }
         }
-        if (isSeenPlayer)
+        if (isSeenPlayer && invincibleTime <= 0)
         {
             var subVec = playerCollider.bounds.center - rb.position;
             subVec.y = 0;
             rb.linearVelocity = subVec.normalized * moveSpeed;
         }
+        if (invincibleTime > 0)
+        {
+            invincibleTime -= Time.deltaTime;
+        }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        var attackObj = collision.gameObject.GetComponent<AttackObj>();
+        if (attackObj != null && invincibleTime <= 0)
+        {
+            hp -= attackObj.power;
+            var dir = transform.position - collision.transform.position;
+            dir.y = 0;
+            var krockbackVec = dir.normalized * knockbackSpeed;
+            rb.linearVelocity = krockbackVec;
+            invincibleTime = invincibleTimeMax;
+            if (hp <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }
+        
     }
 }

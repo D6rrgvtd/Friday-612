@@ -2703,6 +2703,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7153141402127884706, guid: a4ec793513574cd49719c4055b630e2b, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 7498142190150400792, guid: a4ec793513574cd49719c4055b630e2b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.031239
@@ -2756,6 +2760,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7153141402127884706, guid: a4ec793513574cd49719c4055b630e2b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1458391013}
+    - targetCorrespondingSourceObject: {fileID: 7153141402127884706, guid: a4ec793513574cd49719c4055b630e2b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1458391017}
   m_SourcePrefab: {fileID: 100100000, guid: a4ec793513574cd49719c4055b630e2b, type: 3}
 --- !u!1001 &248501540
 PrefabInstance:
@@ -3003,6 +3010,32 @@ CapsuleCollider:
   m_Height: 1.6
   m_Direction: 1
   m_Center: {x: 0, y: 0.8, z: 0}
+--- !u!114 &252193686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 252193679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8bd2f0c715435e49ad5eaadd9349141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player
+  accel: 10
+  rotateSpeed: 2
+  animator: {fileID: 1444898696}
+  jumpSpeed: 5
+  groundNormalYMin: 0.7
+  groundDamping: 8
+  airDamping: 0.5
+  firePrefab: {fileID: 4818970324401746577, guid: 59c516dceb031b64ba6cb9cd59bb41f0, type: 3}
+  fireSpeed: 20
+  fireOffset: {x: 0, y: 0.9, z: 0.2}
+  hp: 5
+  invincibleTime: 0
+  invincibleTimeMax: 0.5
+  knockbackSpeed: 5
 --- !u!1001 &272442239
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8594,7 +8627,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22be780ad998f254e8f89f4cec16a395, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  hp: 2
   moveSpeed: 1.9
+  invincibleTime: 2
+  invincibleTimeMax: 0.5
+  knockbackSpeed: 5
 --- !u!54 &654295375
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8643,6 +8680,19 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &654295379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 654295373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c984af55d49cdd54b97ac8ed52a76301, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AttackObj
+  power: 1
 --- !u!1001 &656428461
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13617,6 +13667,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7153141402127884706, guid: a4ec793513574cd49719c4055b630e2b, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 7498142190150400792, guid: a4ec793513574cd49719c4055b630e2b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.031239
@@ -13670,6 +13724,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7153141402127884706, guid: a4ec793513574cd49719c4055b630e2b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 654295375}
+    - targetCorrespondingSourceObject: {fileID: 7153141402127884706, guid: a4ec793513574cd49719c4055b630e2b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 654295379}
   m_SourcePrefab: {fileID: 100100000, guid: a4ec793513574cd49719c4055b630e2b, type: 3}
 --- !u!1001 &945119485
 PrefabInstance:
@@ -15769,7 +15826,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22be780ad998f254e8f89f4cec16a395, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  hp: 2
   moveSpeed: 1.9
+  invincibleTime: 2
+  invincibleTimeMax: 0.5
+  knockbackSpeed: 5
 --- !u!54 &1100830597
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -15818,6 +15879,19 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &1100830601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100830595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c984af55d49cdd54b97ac8ed52a76301, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AttackObj
+  power: 1
 --- !u!1001 &1106827161
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16892,6 +16966,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 7153141402127884706, guid: a4ec793513574cd49719c4055b630e2b, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 7498142190150400792, guid: a4ec793513574cd49719c4055b630e2b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.031239
@@ -16945,6 +17023,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7153141402127884706, guid: a4ec793513574cd49719c4055b630e2b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1100830597}
+    - targetCorrespondingSourceObject: {fileID: 7153141402127884706, guid: a4ec793513574cd49719c4055b630e2b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1100830601}
   m_SourcePrefab: {fileID: 100100000, guid: a4ec793513574cd49719c4055b630e2b, type: 3}
 --- !u!1001 &1173529856
 PrefabInstance:
@@ -20840,6 +20921,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4000011416029138, guid: 845bb3e01ad4efe44adb29f965b2150b, type: 3}
   m_PrefabInstance: {fileID: 1440567491}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1444898696 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8818148501639231403, guid: 83628a2e699576147adabb30587f44d4, type: 3}
+  m_PrefabInstance: {fileID: 1533009036}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1458391011 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7153141402127884706, guid: a4ec793513574cd49719c4055b630e2b, type: 3}
@@ -20857,7 +20943,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22be780ad998f254e8f89f4cec16a395, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  hp: 2
   moveSpeed: 1.9
+  invincibleTime: 2
+  invincibleTimeMax: 0.5
+  knockbackSpeed: 5
 --- !u!54 &1458391013
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -20906,6 +20996,19 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &1458391017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1458391011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c984af55d49cdd54b97ac8ed52a76301, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AttackObj
+  power: 1
 --- !u!1001 &1461800736
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21492,6 +21595,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: PicoChan
       objectReference: {fileID: 0}
+    - target: {fileID: 4366845095578594969, guid: 83628a2e699576147adabb30587f44d4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4366845095578594969, guid: 83628a2e699576147adabb30587f44d4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 4366845095578594969, guid: 83628a2e699576147adabb30587f44d4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.04
+      objectReference: {fileID: 0}
     - target: {fileID: 8818148501639231403, guid: 83628a2e699576147adabb30587f44d4, type: 3}
       propertyPath: m_Controller
       value: 
@@ -21516,6 +21631,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2350652681907635850, guid: 83628a2e699576147adabb30587f44d4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 252193685}
+    - targetCorrespondingSourceObject: {fileID: 2350652681907635850, guid: 83628a2e699576147adabb30587f44d4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 252193686}
   m_SourcePrefab: {fileID: 100100000, guid: 83628a2e699576147adabb30587f44d4, type: 3}
 --- !u!1001 &1565689863
 PrefabInstance:

@@ -166,6 +166,7 @@ GameObject:
   - component: {fileID: 906496175227276512}
   - component: {fileID: 5981074721018894905}
   - component: {fileID: 6195042590841636596}
+  - component: {fileID: -1474221815822856177}
   m_Layer: 0
   m_Name: Fire
   m_TagString: Untagged
@@ -258,3 +259,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifespan: 2
+--- !u!114 &-1474221815822856177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4818970324401746577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c984af55d49cdd54b97ac8ed52a76301, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AttackObj
+  power: 1
