@@ -30,6 +30,10 @@ public class Player : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         rb = GetComponent<Rigidbody>();
         rb.sleepThreshold = -1;
+
+        rotateTarget = transform.forward;
+        rotateTarget.y = 0;
+        rotateTarget.Normalize();
     }
 
     private void FixedUpdate()
@@ -51,19 +55,24 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if (invincibleTime > 0)
+        {
+            invincibleTime -= Time.deltaTime;
+        }
         if (isGrounded)
         {
             var accelVec = playerInput.actions["Move"].ReadValue<Vector2>();
 
-            var cameraDir = playerInput.camera.transform.forward;
-            cameraDir.y = 0;
-            cameraDir = cameraDir.normalized;
+            var cameraForwardHorizontal = playerInput.camera.transform.forward;
+            cameraForwardHorizontal.y = 0;
+            cameraForwardHorizontal.Normalize();
 
-            var cameraRight = playerInput.camera.transform.right;
+            var cameraRightHorizontal = playerInput.camera.transform.right;
+            cameraRightHorizontal.y = 0;
+            cameraRightHorizontal.Normalize();
 
-            var accelVec3D =
-                cameraDir * accelVec.y * accel
-                + cameraRight * accelVec.x * accel;
+            var accelVec3D = cameraForwardHorizontal * accelVec.y * accel
+                             + cameraRightHorizontal * accelVec.x * accel;
             rb.AddForce(accelVec3D, ForceMode.Acceleration);
 
 
@@ -74,17 +83,21 @@ public class Player : MonoBehaviour
         }
 
 
-        var forward = transform.forward;
-        forward.y = 0;
-        forward = forward.normalized;
-        transform.up = Vector3.up;
+       var currentForward = transform.forward;
+        currentForward.y = 0;
+        currentForward.Normalize();
 
-
-        var targetForward = Vector3.Slerp(forward, rotateTarget, rotateSpeed * Time.deltaTime);
-        if (targetForward != Vector3.zero)
+        if (rotateTarget != Vector3.zero)
         {
-            transform.forward = targetForward;
+            Vector3 nextForward = Vector3.Slerp(currentForward, rotateTarget, rotateSpeed * Time.deltaTime);
+            if (nextForward != Vector3.zero)
+            {
+                // LookRotationを使って、上方向（Vector3.up）を固定したまま回転を適用
+                transform.rotation = Quaternion.LookRotation(nextForward, Vector3.up);
+            }
         }
+
+        
 
 
         Vector3 velocityXZ = rb.linearVelocity;

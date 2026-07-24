@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    
     public Collider playerCollider { get; set; }
     [SerializeField] int hp = 2;
     [SerializeField] private float moveSpeed;
@@ -12,36 +11,51 @@ public class Enemy : MonoBehaviour
     [SerializeField] float knockbackSpeed = 5;
 
     Rigidbody rb;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
-       rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
     void Update()
     {
+        if (playerCollider == null)
+        {
+            rb.linearVelocity = Vector3.zero;
+            return;
+        }
+
         bool isSeenPlayer = true;
         var direction = playerCollider.bounds.center - rb.position;
-        if(Physics.Raycast(rb.position, direction.normalized,out var hitInfo))
+
+       
+        Vector3 rayStartPos = rb.position + direction.normalized * 0.5f;
+
+       
+        float rayLength = direction.magnitude - 0.5f;
+
+        if (Physics.Raycast(rayStartPos, direction.normalized, out var hitInfo, rayLength))
         {
-            //プレイヤー以外の障害物に当たった場合は見えない、
-           if (hitInfo.collider != playerCollider)
+            if (hitInfo.collider != playerCollider)
             {
                 isSeenPlayer = false;
             }
         }
+    
+
         if (isSeenPlayer && invincibleTime <= 0)
         {
             var subVec = playerCollider.bounds.center - rb.position;
             subVec.y = 0;
             rb.linearVelocity = subVec.normalized * moveSpeed;
         }
+
         if (invincibleTime > 0)
         {
             invincibleTime -= Time.deltaTime;
         }
     }
+
 
     private void OnCollisionStay(Collision collision)
     {
@@ -59,6 +73,5 @@ public class Enemy : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-        
     }
 }
